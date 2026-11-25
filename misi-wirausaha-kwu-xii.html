@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Petualangan Menuju Kota Wirausaha – KWU Kelas XII</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light;--bg:#f4f6fb;--card:#fff;--tx:#1b2333;--mu:#5b6579;--pr:#3b5bdb;--ok:#2b8a3e;--no:#c92a2a;--bd:#d9deea;--ac:#f08c00}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#10141f;--card:#1a2030;--tx:#e8ecf5;--mu:#9aa4b8;--pr:#748ffc;--ok:#69db7c;--no:#ff8787;--bd:#2c3550;--ac:#ffa94d}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#10141f;--card:#1a2030;--tx:#e8ecf5;--mu:#9aa4b8;--pr:#748ffc;--ok:#69db7c;--no:#ff8787;--bd:#2c3550;--ac:#ffa94d}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--tx)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:10}
+.h{display:none}
+.w{max-width:720px;margin:0 auto;padding:12px 14px 40px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:16px;margin:12px 0}
+.hud{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--card);border-bottom:1px solid var(--bd);padding:10px 14px}
+.hud .r{display:flex;justify-content:space-between;align-items:center;max-width:720px;margin:auto;gap:8px}
+#tm{font:700 22px ui-monospace,Menlo,monospace;color:var(--pr)}#tm.low{color:var(--no)}
+.pb{height:10px;background:repeating-linear-gradient(90deg,var(--bd) 0 10px,transparent 10px 16px);border-radius:6px;margin:16px auto 4px;max-width:720px;position:relative}
+.pb i{display:block;height:100%;width:0;background:var(--ac);border-radius:6px;transition:width .4s;position:relative}
+.pb i::after{content:attr(data-av);position:absolute;right:-12px;top:-15px;font-size:24px;line-height:1}
+button{font:inherit;cursor:pointer;border-radius:10px;border:1px solid var(--bd);background:var(--card);color:var(--tx);padding:10px 14px}
+button:disabled{opacity:.4;cursor:default}
+.pri{background:var(--pr);color:#fff;border-color:var(--pr);font-weight:600}
+.op{display:flex;gap:10px;width:100%;text-align:left;margin:8px 0;align-items:flex-start}
+.op b{min-width:26px;height:26px;border-radius:50%;background:var(--bd);display:grid;place-items:center;font-size:13px}
+.op.on{border-color:var(--pr);background:color-mix(in srgb,var(--pr) 14%,var(--card))}
+.op.on b{background:var(--pr);color:#fff}
+#q{user-select:none;-webkit-user-select:none}
+#q p{font-size:17px;margin:8px 0 12px}
+#grid{display:flex;flex-wrap:wrap;gap:6px}
+.g{width:40px;padding:6px 0;text-align:center}
+.g.dn{background:color-mix(in srgb,var(--ok) 25%,var(--card))}
+.g.cur{outline:2px solid var(--pr)}
+.row{display:flex;gap:8px;justify-content:space-between;margin-top:12px;flex-wrap:wrap}
+input{font:inherit;width:100%;padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);margin:6px 0 12px}
+#md{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:20;align-items:center;justify-content:center;padding:20px}
+.box{background:var(--card);border-radius:14px;padding:20px;max-width:420px;border:1px solid var(--bd)}
+.box h3{margin:0 0 8px}
+.big{font-size:60px;font-weight:800;color:var(--pr);line-height:1}
+.ok{color:var(--ok)}.no{color:var(--no)}.mu{color:var(--mu)}
+.rv{border-left:4px solid var(--bd);padding-left:12px;margin:14px 0}
+.rv.ok{border-color:var(--ok);color:var(--tx)}.rv.no{border-color:var(--no);color:var(--tx)}
+.rv p{margin:4px 0}
+a{color:var(--pr);cursor:pointer;font-size:13px}
+select{font:inherit;width:100%;padding:10px;border-radius:10px;border:1px solid var(--bd);background:var(--bg);color:var(--tx);margin:6px 0 12px}
+.zn{display:inline-block;color:#fff;font-weight:700;padding:4px 12px;border-radius:999px;margin-bottom:6px}
+#q{border-top:4px solid var(--ac)}
+</style></head><body>
+<div id="home" class="w">
+<div class="card"><h1 style="margin:0 0 4px">🗺️ Petualangan Menuju Kota Wirausaha</h1>
+<p class="mu" style="margin:0 0 12px">Latihan soal KWU Kelas XII. Lewati pos demi pos: hutan karakter, gua inovasi, hingga menara proposal. Setiap soal adalah rintangan di jalan. Sampai di tujuan dan raih gelar Raja Wirausaha!</p>
+<label>Pilih tokoh petualang<select id="av"><option>🧭</option><option>🧙</option><option>🥷</option><option>🦸</option><option>🧑‍🚀</option><option>🐲</option></select></label>
+<label>Nama lengkap<input id="nm" maxlength="40" autocomplete="off"></label>
+<label>Kelas<input id="kl" maxlength="15" placeholder="contoh: XI TKJ 1" autocomplete="off"></label>
+<button class="pri" id="go" style="width:100%">Mulai Petualangan</button></div>
+<div class="card"><b>Aturan main</b>
+<ul style="padding-left:20px;margin:6px 0">
+<li>Waktu 45 menit sejak soal dimulai. Waktu habis, petualangan otomatis berakhir dan nilai langsung tampil.</li>
+<li>Ada 40 soal. Urutan soal dan urutan pilihan jawaban diacak berbeda untuk tiap siswa.</li>
+<li>Soal yang kosong dihitung salah. Bila sudah selesai, tekan <b>Kirim Nilai</b>.</li>
+<li><b>Dilarang berpindah tab atau aplikasi.</b> Jika kamu keluar jalur lalu kembali, kamu tersesat: semua jawaban dihapus dan petualangan mulai lagi dari pos 1. Waktu tetap berjalan.</li>
+</ul></div>
+<a class="rs">Reset perangkat (guru)</a></div>
+
+<div id="quiz" class="h">
+<div class="hud"><div class="r"><div><b id="who"></b><br><small class="mu" id="cnt"></small></div><div id="tm">45:00</div></div><div class="pb"><i id="bar"></i></div></div>
+<div class="w"><div class="card" id="q"></div>
+<div class="row"><button id="prev">← Sebelumnya</button><button id="next">Berikutnya →</button></div>
+<div class="card"><div id="grid"></div></div>
+<button class="pri" id="send" style="width:100%">🏁 Kirim Nilai</button></div></div>
+
+<div id="res" class="h w"></div>
+<div id="md"></div>
+
+<script>
+const Q=[
+["Rafi menerima pesanan 100 bungkus bakso goreng untuk acara sekolah. Sehari sebelumnya mesin penggorengnya rusak. Ia meminjam mesin tetangga, begadang, dan pesanan tiba tepat waktu. Karakter wirausaha yang paling menonjol adalah ...","Komitmen dan tanggung jawab",["Suka menunda pekerjaan","Mengandalkan keberuntungan","Menghindari semua risiko","Menyerahkan masalah ke pelanggan"],"Ia menuntaskan janji kepada pelanggan meski menghadapi hambatan."],
+["Pemilik kedai menemukan stok susu yang hampir kedaluwarsa. Pelanggan pasti tidak menyadarinya, tetapi ia memilih membuangnya dan membeli yang baru. Sikap yang ditunjukkan adalah ...","Jujur dan menjaga kepercayaan",["Boros dan tidak efisien","Terlalu takut mengambil risiko","Mengutamakan penampilan usaha","Mengikuti kebiasaan pesaing"],"Kejujuran menjaga kepercayaan pelanggan, yang lebih berharga daripada penghematan sesaat."],
+["Dina mengelola kebun hidroponik. Ia memastikan pembibitan, perawatan, panen, pengemasan, hingga pengiriman berjalan terpadu sampai sayur diterima pelanggan. Perilaku kerja yang tepat adalah kerja ...","Tuntas",["Ikhlas","Mawas","Bakti","Keras"],"Kerja tuntas berarti mengorganisasikan seluruh bagian usaha secara terpadu sampai selesai."],
+["Setelah tiga kali kalah dalam penawaran pengadaan seragam, Pak Hadi mempelajari penawaran pemenang, memperbaiki jahitan, lalu mengajukan penawaran lagi. Karakter yang ditunjukkan adalah ...","Tekun dan pantang menyerah",["Cepat puas diri","Mudah berganti usaha","Menyalahkan panitia","Menghindari persaingan"],"Kegagalan dijadikan bahan perbaikan, lalu ia mencoba lagi."],
+["Tomi menaruh seluruh tabungannya pada satu produk tanpa uji pasar. Gita menguji 20 produk lebih dulu, lalu menambah produksi setelah terbukti laku. Pernyataan yang tepat tentang sikap terhadap risiko adalah ...","Gita, karena risikonya diperhitungkan",["Tomi, karena lebih berani","Tomi, karena modalnya lebih besar","Gita, karena menghindari semua risiko","Keduanya sama saja"],"Wirausaha berani mengambil risiko yang terukur, bukan nekat tanpa perhitungan."],
+["Menjelang pameran produk, dua anggota tim berselisih soal pembagian tugas. Sekar mendengarkan keduanya, membagi tugas sesuai kemampuan, lalu memastikan semuanya berjalan. Sikap Sekar mencerminkan ...","Jiwa kepemimpinan",["Sikap menghindari konflik","Sikap menunggu perintah","Sikap tak peduli pada tim","Sikap memaksakan kehendak"],"Pemimpin mampu mengatur tim dan mengambil keputusan."],
+["Seorang pemilik usaha kecil sering lembur karena semua pekerjaan dikerjakan sendiri tanpa jadwal. Langkah manajemen waktu yang paling tepat adalah ...","Menyusun prioritas dan jadwal harian",["Menambah jam kerja tanpa batas","Mengerjakan yang mudah saja","Menunda semua pekerjaan penting","Mengurangi jumlah pelanggan"],"Prioritas dan jadwal membuat pekerjaan penting selesai tanpa lembur berlebihan."],
+["Fitri menolak semua saran pelanggan karena merasa produknya sudah paling baik, dan penjualannya terus turun. Sikap yang perlu ia perbaiki adalah ...","Terbuka terhadap masukan",["Berani mengambil risiko","Mampu menekan biaya","Kerja keras berlebihan","Kecepatan memproduksi"],"Wirausaha memakai umpan balik pelanggan untuk memperbaiki produk."],
+["Kantin sekolah membuang banyak minyak jelantah. Siswa mengolahnya menjadi sabun cuci dan lilin, lalu menjualnya ke warga. Manfaat kreativitas yang tampak adalah ...","Mengubah limbah menjadi nilai ekonomi",["Menaikkan harga minyak goreng","Mengurangi jumlah siswa jajan","Menggantikan tugas petugas kantin","Menutup kantin sekolah"],"Kreativitas mengubah masalah limbah menjadi peluang ekonomi sekaligus menjaga lingkungan."],
+["Ayu menggambar 30 sketsa tas yang unik, tetapi belum dibuat. Bima membuat tas dari ban bekas yang tahan air, mengujinya pada pengguna, lalu menjualnya. Pernyataan yang tepat adalah ...","Ayu kreatif; Bima sudah berinovasi",["Keduanya sudah berinovasi","Ayu berinovasi; Bima hanya kreatif","Keduanya tidak kreatif","Keduanya belum menghasilkan ide"],"Kreativitas menghasilkan gagasan; inovasi mewujudkan gagasan menjadi produk bernilai guna dan jual."],
+["Sebuah warung mi menyediakan kode QR di setiap meja. Pelanggan memesan lewat ponsel dan pesanan langsung masuk ke dapur sehingga lebih cepat. Jenis inovasinya adalah inovasi ...","Proses layanan",["Bahan baku","Nama merek","Harga jual","Lokasi usaha"],"Yang berubah adalah cara pemesanan dan alur layanan, yaitu proses."],
+["Setelah 40 ide terkumpul dalam sesi brainstorming tanpa saling mengkritik, tahap berikutnya yang paling tepat adalah ...","Menyaring ide dengan kriteria kelayakan",["Memproduksi semua ide sekaligus","Memilih ide yang paling lucu","Membuang semua ide lama","Menunggu ide yang sempurna"],"Setelah ide terkumpul, ide disaring dengan kriteria seperti kebutuhan pasar dan kemampuan tim."],
+["Prototipe botol minum siswa lolos uji kekuatan, tetapi 8 dari 10 pengguna mengeluh tutupnya sulit dibuka dengan satu tangan. Langkah paling tepat adalah ...","Perbaiki tutup, lalu uji ulang",["Produksi massal dulu, perbaiki nanti","Abaikan karena lolos uji kekuatan","Ganti seluruh produk menjadi gelas","Hentikan proyek sepenuhnya"],"Keluhan pengguna adalah bahan penyempurnaan produk; perbaiki lalu uji kembali."],
+["Toko roti rumahan menawarkan “paket langganan mingguan” berisi roti berbeda tiap pekan, harga hemat, dan diantar ke rumah. Inovasi ini terutama menjawab ...","Kebutuhan pelanggan akan kepraktisan dan variasi",["Keinginan pemilik menutup toko","Persaingan harga bahan murah","Aturan pajak penjualan roti","Kebutuhan pemasok menjual lebih banyak"],"Langganan, variasi, dan pengantaran memberi nilai tambah yang dicari pelanggan."],
+["Mira gagal dalam ujian praktik las. Ucapan yang mencerminkan fixed mindset adalah ...","“Aku memang tidak punya bakat.”",["“Aku minta saran guru lalu latihan lagi.”","“Kali ini caraku salah, akan kuganti.”","“Aku catat bagian yang belum bisa.”","“Aku coba teknik pengelasan lain.”"],"Fixed mindset menganggap kemampuan tetap, sedangkan growth mindset meyakini kemampuan dapat dikembangkan."],
+["Raka suka merakit komputer, teliti, dan sering membantu tetangga memperbaiki jaringan internet. Bidang usaha yang paling dekat dengan minat dan potensinya adalah ...","Jasa instalasi dan servis jaringan",["Pembuatan kue pesanan","Jasa penata rias","Budidaya ikan hias","Produksi kain batik"],"Pemetaan karier mencocokkan minat, potensi, dan kompetensi dengan bidang usaha."],
+["Nadia suka menulis dan mahir mendesain, tetapi belum tahu peluang pasarnya. Langkah awal yang paling tepat adalah ...","Mengamati kebutuhan pasar yang cocok dengan kemampuannya",["Menunggu bakatnya makin besar","Mengikuti pilihan jurusan teman","Memilih usaha bermodal terbesar","Menyimpan kemampuan hanya untuk hobi"],"Potensi diri perlu dipertemukan dengan peluang yang dibutuhkan pasar."],
+["Geri dinilai kurang percaya diri saat presentasi usaha. Ia merekam latihannya, meminta komentar teman, dan berlatih ulang tiap minggu. Pendekatan yang ia pakai adalah ...","Mengembangkan kemampuan lewat latihan dan umpan balik",["Menunggu percaya diri datang sendiri","Menghindari presentasi berikutnya","Meminta orang lain selalu presentasi","Mengganti topik tanpa berlatih"],"Ini ciri growth mindset: kemampuan dikembangkan dengan usaha dan masukan."],
+["Orang tua murid sebuah SD mengeluh sulit menemukan jasa jemput anak yang aman dan terjadwal. Siswa SMK melihatnya sebagai peluang usaha. Sumber peluangnya adalah ...","Masalah konsumen yang belum terlayani",["Hobi pribadi pemilik usaha","Meniru usaha tetangga","Aturan pemerintah yang baru","Kegagalan usaha lain"],"Keluhan dan kebutuhan konsumen yang belum terpenuhi adalah sumber peluang."],
+["Banyak sekolah mulai memakai pembayaran digital, tetapi pedagang kantin belum punya QRIS dan bingung mengurusnya. Peluang jasa membantu pedagang tersebut bersumber dari ...","Perubahan teknologi dan kebiasaan",["Keluhan tentang rasa makanan","Hobi mengoleksi uang lama","Turunnya harga bahan pokok","Libur sekolah yang panjang"],"Perubahan teknologi menciptakan kebutuhan baru yang dapat dilayani."],
+["Usaha laundry kiloan siswa: (1) mesin cuci hanya dua unit; (2) kos-kosan baru bermunculan di sekitar sekolah. Pengelompokan SWOT berurutan adalah ...","Kelemahan – Peluang",["Kekuatan – Ancaman","Peluang – Kelemahan","Ancaman – Kekuatan","Kelemahan – Ancaman"],"Mesin terbatas = kelemahan (internal); kos baru = peluang (eksternal)."],
+["Sebelum membuat 200 kaus komunitas, tim membuka pre-order 20 kaus dan menghitung peminatnya. Tujuan langkah tersebut adalah ...","Menguji minat pasar sebelum produksi besar",["Menaikkan harga kaus","Menghindari kewajiban pajak","Mengurangi jumlah anggota tim","Mempercepat pembuatan desain"],"Uji pasar skala kecil mengurangi risiko salah produksi."],
+["Tim punya tiga ide: (1) jasa foto wisuda (alat tersedia, tim ahli); (2) toko online sepatu impor (modal besar, belum ada pemasok); (3) kedai kopi keliling (modal sedang, pesaing banyak). Untuk uji coba awal dengan sumber daya terbatas, ide paling realistis adalah ...","Jasa foto wisuda",["Toko online sepatu impor","Kedai kopi keliling","Ketiganya sekaligus","Tidak ada yang layak"],"Ide 1 sesuai kompetensi dan alat yang sudah tersedia, dengan modal kecil."],
+["Survei: 80% calon pembeli mau membayar maksimal Rp15.000 untuk satu nasi kotak. Biaya produksi Rp11.000 dan target laba Rp3.000 per kotak. Keputusan paling rasional adalah ...","Jual Rp14.000, usaha layak",["Jual Rp20.000 demi gengsi","Batalkan karena laba kecil","Turunkan kualitas drastis","Jual Rp9.000 agar laris"],"11.000 + 3.000 = 14.000, masih di bawah batas daya beli Rp15.000."],
+["Makin banyak warga perumahan memelihara kucing, tetapi sedikit yang punya waktu memandikannya dan salon hewan letaknya jauh. Konsep usaha yang paling relevan adalah ...","Jasa grooming kucing panggilan ke rumah",["Penyewaan alat berat","Percetakan undangan","Toko seragam sekolah","Jasa penjilidan laporan"],"Usaha menjawab kebutuhan dan gaya hidup yang belum terlayani."],
+["Sebuah desa penghasil singkong memiliki banyak ibu rumah tangga yang ingin berpenghasilan. Peluang yang paling tepat memanfaatkan potensi lokal adalah ...","Olahan singkong bermerek dengan tenaga warga",["Menjual singkong mentah ke pengepul saja","Mengimpor tepung tapioka","Membuka bengkel motor","Menjual pakaian bekas impor"],"Potensi bahan dan tenaga lokal diolah menjadi produk bernilai tambah."],
+["Pelanggan melapor bahwa kue ulang tahun pesanannya tiba satu jam terlambat dan acara sudah dimulai. Tanggapan terbaik pemilik usaha adalah ...","Minta maaf, beri ganti, benahi pengiriman",["Menyalahkan kurir lalu selesai","Mengabaikan karena sudah terjadi","Menolak ganti rugi dan blokir kontak","Meminta pelanggan memaklumi"],"Menangani komplain: mendengarkan, meminta maaf, memberi solusi, dan memperbaiki sistem."],
+["Tim membuka usaha jus buah. Hal yang bukan sumber daya yang perlu disiapkan di awal usaha adalah ...","Keuntungan bulan depan",["Modal awal","Blender dan buah","Pemasok buah","Tenaga pembuat jus"],"Keuntungan masih berupa hasil, bukan sumber daya yang disiapkan di awal."],
+["Pemilik toko mencatat penjualan harian dan membandingkannya dengan target tiap akhir bulan. Saat omzet turun, ia menelusuri penyebabnya. Manfaat utama evaluasi rutin ini adalah ...","Masalah cepat diketahui dan diperbaiki",["Karyawan menjadi takut bekerja","Pajak otomatis berkurang","Pesaing berhenti berjualan","Usaha tidak perlu promosi lagi"],"Evaluasi berkala menunjukkan usaha maju atau mundur sehingga cepat diperbaiki."],
+["Produk skincare untuk remaja dipromosikan lewat iklan di majalah para pensiunan, dan penjualannya sepi. Kesalahan utamanya adalah ...","Tidak menyasar target pasar yang tepat",["Harga terlalu murah","Kemasan terlalu kecil","Produksi terlalu cepat","Nama produk terlalu pendek"],"Wirausaha harus memahami kepada siapa produk dijual dan memasarkannya sesuai target."],
+["Siswa TPM menemukan mekanisme pengupas jagung yang cara kerjanya belum pernah ada. Perlindungan HKI yang paling tepat untuk temuannya adalah ...","Paten",["Hak cipta","Hak merek","Rahasia dagang","Desain industri"],"Paten melindungi penemuan di bidang teknologi."],
+["Nama dan logo “Kopi Tanjung” milik siswa dipakai pihak lain pada produk serupa. Hak yang dilanggar adalah ...","Hak merek",["Hak paten","Desain industri","Rahasia dagang","Hak atas tanah"],"Nama dan logo yang membedakan produk dilindungi sebagai merek."],
+["Siswa DKV mendesain botol sambal dengan bentuk dan pola warna yang khas, lalu ingin melindungi tampilan produk tersebut. Perlindungan yang tepat adalah ...","Desain industri",["Paten","Hak merek","Rahasia dagang","Indikasi geografis"],"Desain industri melindungi bentuk, konfigurasi, serta komposisi garis dan warna produk."],
+["Seorang pedagang mencetak foto karya fotografer terkenal pada kaus lalu menjualnya tanpa izin. Tindakan tersebut ...","Melanggar hak cipta",["Wajar karena fotonya mudah ditemukan","Melanggar hak paten","Dibenarkan jika dijual murah","Dibenarkan jika nama dihapus"],"Memperbanyak dan menjual karya tanpa izin pemegang hak adalah pelanggaran hak cipta."],
+["Pemilik usaha bumbu merahasiakan komposisi dan takaran bumbunya. Hanya dua orang kepercayaan yang tahu, dan keduanya menandatangani perjanjian kerahasiaan. Bentuk perlindungannya adalah ...","Rahasia dagang",["Hak cipta","Hak merek","Paten","Desain industri"],"Informasi bisnis bernilai ekonomi yang dijaga kerahasiaannya adalah rahasia dagang."],
+["Tim menulis: “Produk kami sabun cuci organik yang 30% lebih hemat, menyasar ibu rumah tangga usia 25–40 tahun di perumahan.” Kalimat itu seharusnya ada pada bagian ...","Deskripsi produk dan pasar",["Pendahuluan","Proyeksi keuangan","Penutup","Lampiran"],"Keunggulan produk dan target konsumen termasuk deskripsi produk dan pasar."],
+["Langkah menyusun proposal (acak): P) hitung anggaran dan proyeksi keuangan; Q) riset dan analisis pasar; R) tulis ringkasan dan penutup; S) tentukan produk dan strategi usaha; T) lengkapi lampiran dan periksa ulang. Urutan yang tepat adalah ...","Q – S – P – R – T",["P – Q – S – R – T","Q – P – S – R – T","S – Q – P – R – T","Q – S – R – P – T"],"Riset dulu, lalu strategi, anggaran dan proyeksi, penutup, dan terakhir lampiran serta pemeriksaan."],
+["Sebuah proposal menargetkan omzet naik 300% dalam sebulan tanpa dasar hitungan, dan penyandang dana meragukannya. Perbaikan paling tepat adalah ...","Susun proyeksi dari data riset dan asumsi wajar",["Naikkan target jadi 500%","Hapus bagian proyeksi","Tambahkan foto produk saja","Ganti nama usaha"],"Proyeksi keuangan harus realistis agar meyakinkan penyandang dana."],
+["Penilai menyebut proposal sebuah kelompok sudah lengkap, tetapi berakhir tiba-tiba tanpa pernyataan akhir. Bagian yang perlu ditambahkan pada penutup adalah ...","Kesimpulan, harapan, dan tanda tangan pengusul",["Rincian biaya harian operasional","Daftar riwayat hidup pendiri","Catatan omzet kemarin","Daftar harga pemasok"],"Penutup memuat kesimpulan, harapan atas proposal, dan identitas atau tanda tangan pengusul."],
+["Kelompok siswa akan mengajukan modal usaha ke program kewirausahaan sekolah. Fungsi utama proposal bagi pihak pemberi dana adalah ...","Meyakinkan bahwa usaha layak dan terencana",["Menggantikan laporan keuangan","Menghindari pembayaran pajak","Mengatur gaji karyawan","Menentukan harga pokok penjualan"],"Proposal menggambarkan rencana, tujuan, dan strategi sehingga pemberi dana dapat menilai kelayakannya."]
+];
+const G=[8,6,4,8,4,5,5],DUR=45*60000,K="kwu12_misi",PIN="KWU11";
+const ZN=["🌲 Hutan Karakter","💡 Gua Inovasi","🧗 Tebing Mindset","🏝️ Pulau Peluang","🏘️ Desa Usaha","🏰 Benteng HKI","📜 Menara Proposal"];
+const zone=i=>{let p=0;for(let g=0;g<G.length;g++){p+=G[g];if(i<p)return g}};
+const $=s=>document.querySelector(s);
+let S=null,tk=null,away=false;
+const E=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const sh=a=>{a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a};
+const fmt=ms=>{const s=Math.max(0,Math.ceil(ms/1000));return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")};
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const opts=i=>sh([Q[i][1],...Q[i][2]]);
+const show=id=>["home","quiz","res"].forEach(x=>$("#"+x).classList.toggle("h",x!==id));
+function build(){let ids=[],p=0;G.forEach(n=>{const r=sh([...Array(n).keys()].map(x=>x+p));ids.push(...r);p+=n});return sh(ids)}
+function modal(h,b){const m=$("#md");m.innerHTML='<div class="box">'+h+'<div class="row">'+b.map((x,i)=>'<button class="'+(x[1]||"")+'" data-m="'+i+'">'+x[0]+'</button>').join("")+'</div></div>';m.style.display="flex";m.onclick=e=>{const v=e.target.dataset.m;if(v!==undefined){m.style.display="none";if(b[v][2])b[v][2]()}}}
+function start(){const n=$("#nm").value.trim(),k=$("#kl").value.trim();if(!n||!k){modal("<h3>Data belum lengkap</h3><p>Isi nama dan kelas dulu.</p>",[["OK","pri"]]);return}
+S={n,k,av:$("#av").value,t0:Date.now(),v:0,cur:0,done:false,qs:build().map(i=>({i,o:opts(i),a:-1}))};save();run()}
+function run(){show("quiz");$("#who").textContent=(S.av||"🧭")+" "+S.n+" · "+S.k;clearInterval(tk);tk=setInterval(tick,1000);tick();render()}
+function tick(){const l=S.t0+DUR-Date.now();if(l<=0){finish(true);return}$("#tm").textContent=fmt(l);$("#tm").classList.toggle("low",l<300000)}
+function render(){const q=S.qs[S.cur],d=Q[q.i],n=S.qs.length,an=S.qs.filter(x=>x.a>=0).length;
+$("#bar").style.width=(an/n*100)+"%";$("#bar").dataset.av=S.av||"🧭";$("#cnt").textContent="Pos terlewati "+an+" dari "+n;
+$("#q").innerHTML='<span class="zn" style="background:hsl('+(zone(q.i)*50)+' 55% 38%)">'+ZN[zone(q.i)]+'</span><br><small class="mu">Pos '+(S.cur+1)+' dari '+n+' · rintangan di jalan</small><p>'+E(d[0])+'</p>'+q.o.map((t,j)=>'<button class="op'+(q.a===j?" on":"")+'" data-j="'+j+'"><b>'+"ABCDE"[j]+'</b><span>'+E(t)+'</span></button>').join("");
+$("#grid").innerHTML=S.qs.map((x,j)=>'<button class="g'+(j===S.cur?" cur":"")+(x.a>=0?" dn":"")+'" data-g="'+j+'">'+(j+1)+'</button>').join("");
+$("#prev").disabled=S.cur===0;$("#next").disabled=S.cur===n-1}
+function reset(){S.qs.forEach(q=>{q.o=opts(q.i);q.a=-1});S.cur=0;S.v++;save();render();
+modal("<h3>🌫️ Kamu tersesat!</h3><p><b>"+E(S.n)+"</b> ("+E(S.k)+") keluar dari jalur petualangan. Peta dan bekalmu hilang, jadi kamu harus kembali ke pos 1. Waktu tetap berjalan.</p><p class='mu'>Keluar jalur ke-"+S.v+"</p>",[["Kembali ke Pos 1","pri"]])}
+function finish(auto){if(S.done)return;S.done=true;S.auto=!!auto;S.t1=Math.min(Date.now(),S.t0+DUR);clearInterval(tk);$("#md").style.display="none";save();result()}
+function result(){show("res");const n=S.qs.length,b=S.qs.filter(q=>q.a>=0&&Q[q.i][1]===q.o[q.a]).length,k=S.qs.filter(q=>q.a<0).length,nl=Math.round(b/n*100);
+const r=nl>=90?["👑","Raja Wirausaha","Kamu tiba di Kota Wirausaha dengan gemilang!"]:nl>=75?["🏰","Penjelajah Tangguh","Gerbang kota sudah terlihat, sedikit lagi sampai."]:nl>=60?["⛺","Petualang Muda","Perjalananmu baru separuh. Pelajari catatannya, lalu coba lagi."]:["🌲","Pengelana Tersesat","Kamu masih tersesat di hutan. Baca catatan perjalanan di bawah."];
+$("#res").innerHTML='<div class="card" style="text-align:center">'+(S.auto?'<p class="no"><b>⏰ Waktu 45 menit habis, petualangan berakhir</b></p>':'')+'<div style="font-size:42px">'+r[0]+'</div><b>'+r[1]+'</b><p class="mu">'+r[2]+'</p><div class="big">'+nl+'</div><p class="mu">'+E(S.n)+' · '+E(S.k)+'</p><p>Benar <b class="ok">'+b+'</b> · Salah <b class="no">'+(n-b-k)+'</b> · Kosong <b>'+k+'</b> dari '+n+' soal</p><p class="mu">Waktu: '+fmt(S.t1-S.t0)+' · Keluar halaman: '+S.v+' kali</p><p><b>Foto layar halaman ini dan kirim ke guru.</b></p></div><h2>📜 Catatan Perjalanan: Pembahasan</h2>'+
+S.qs.map((q,i)=>{const d=Q[q.i],ok=q.a>=0&&d[1]===q.o[q.a];return '<div class="rv '+(ok?"ok":"no")+'"><p><b>'+(ok?"✅":"❌")+' '+(i+1)+'.</b> '+E(d[0])+'</p><p>Jawabanmu: '+(q.a>=0?E(q.o[q.a]):"<i>kosong</i>")+'</p><p>Jawaban benar: <b>'+E(d[1])+'</b></p><p class="mu">💡 '+E(d[3])+'</p></div>'}).join("")+'<a class="rs">Reset perangkat (guru)</a>'}
+function leave(){if(S&&!S.done&&!$("#quiz").classList.contains("h"))away=true}
+function back(){if(away&&S&&!S.done){away=false;reset()}}
+document.addEventListener("visibilitychange",()=>document.hidden?leave():back());
+addEventListener("blur",leave);addEventListener("focus",back);
+addEventListener("copy",e=>e.preventDefault());addEventListener("contextmenu",e=>e.preventDefault());
+$("#go").onclick=start;
+$("#q").onclick=e=>{const o=e.target.closest(".op");if(o){S.qs[S.cur].a=+o.dataset.j;save();render()}};
+$("#grid").onclick=e=>{const g=e.target.closest(".g");if(g){S.cur=+g.dataset.g;render()}};
+$("#prev").onclick=()=>{S.cur--;render()};$("#next").onclick=()=>{S.cur++;render()};
+$("#send").onclick=()=>{const k=S.qs.filter(q=>q.a<0).length;modal("<h3>Kirim nilai?</h3><p>"+(k?"Masih ada <b>"+k+"</b> soal kosong (dihitung salah). ":"Semua soal sudah dijawab. ")+"Setelah dikirim, jawaban tidak bisa diubah.</p>",[["Batal"],["Ya, kirim nilai","pri",()=>finish(false)]])};
+document.addEventListener("click",e=>{if(e.target.classList.contains("rs")&&prompt("PIN guru:")===PIN){try{localStorage.removeItem(K)}catch(x){}location.reload()}});
+try{S=JSON.parse(localStorage.getItem(K))}catch(e){S=null}
+if(S){if(S.done)result();else if(Date.now()>=S.t0+DUR)finish(true);else{run();reset()}}
+</script></body></html>
